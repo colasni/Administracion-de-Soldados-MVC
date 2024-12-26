@@ -8,4 +8,4 @@ Este proyecto fue creado con el objetivo de mejorar mi lógica con Programación
 Para entender un poco más la idea, esta es la interfaz visual:
 </p>
 
-(https://github.com/user-attachments/assets/9950ed3d-9648-4722-af9e-25338136cddf)
+![Captura de pantalla 2024-12-26 161008](https://github.com/user-attachments/assets/36b7fae0-7730-4c8a-b775-7d21b8e0b11e)
