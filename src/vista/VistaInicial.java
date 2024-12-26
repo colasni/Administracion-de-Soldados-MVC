@@ -1,6 +1,7 @@
 package vista;
 
-import java.awt.BorderLayout;
+import javax.swing.BoxLayout;
+
 //import java.awt.Color;
 
 /**
@@ -8,11 +9,11 @@ import java.awt.BorderLayout;
  * @author nico
  */
 public class VistaInicial extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form VistaInicial
      */
-    public VistaInicial() {
+    public VistaInicial(){
         initComponents();
     }
 
@@ -33,8 +34,8 @@ public class VistaInicial extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanelHeader2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        btnRegistro = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
+        jButtonRegistro = new javax.swing.JButton();
+        jButtonModificar = new javax.swing.JButton();
         mas = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,17 +74,8 @@ public class VistaInicial extends javax.swing.JFrame {
         );
 
         jPanelListar.setBackground(new java.awt.Color(102, 102, 0));
-
-        javax.swing.GroupLayout jPanelListarLayout = new javax.swing.GroupLayout(jPanelListar);
-        jPanelListar.setLayout(jPanelListarLayout);
-        jPanelListarLayout.setHorizontalGroup(
-            jPanelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanelListarLayout.setVerticalGroup(
-            jPanelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        // se pone BoxLayout para que los elementos se acomoden de manera vertical y haga salto de linea.
+        jPanelListar.setLayout(new BoxLayout(jPanelListar, BoxLayout.Y_AXIS));
 
         jPanelContent.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -123,19 +115,19 @@ public class VistaInicial extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ADMINISTRACIÓN DE SOLDADOS");
 
-        btnRegistro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnRegistro.setText("Registro");
-        btnRegistro.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegistro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButtonRegistro.setText("Registro");
+        jButtonRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistroActionPerformed(evt);
+                jButtonRegistroActionPerformed(evt);
             }
         });
 
-        btnModificar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnModificar.setText("Modificar");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonModificar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButtonModificar.setText("Modificar");
+        jButtonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                jButtonModificarActionPerformed(evt);
             }
         });
 
@@ -157,9 +149,9 @@ public class VistaInicial extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addGroup(jPanelHeader2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(btnRegistro)
+                        .addComponent(jButtonRegistro)
                         .addGap(18, 18, 18)
-                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(mas, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -171,8 +163,8 @@ public class VistaInicial extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelHeader2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistro)
-                    .addComponent(btnModificar)
+                    .addComponent(jButtonRegistro)
+                    .addComponent(jButtonModificar)
                     .addComponent(mas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
@@ -190,7 +182,7 @@ public class VistaInicial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelHeader2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelContent, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)))
+                    .addComponent(jPanelContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,28 +197,14 @@ public class VistaInicial extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+    }// </                                  
 
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        VistaModificar md = new VistaModificar();
-        md.setSize(406, 268);
-        md.setLocation(0,0);
-        
-        jPanelContent.removeAll();
-        jPanelContent.add(md, BorderLayout.CENTER);
-        jPanelContent.revalidate();
-        jPanelContent.repaint();
+    private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {                                             
+
     }                                            
 
-    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        VistaRegistro rg = new VistaRegistro();
-        rg.setSize(406, 268);
-        rg.setLocation(0,0);
+    private void jButtonRegistroActionPerformed(java.awt.event.ActionEvent evt) {                                            
         
-        jPanelContent.removeAll();
-        jPanelContent.add(rg, BorderLayout.CENTER);
-        jPanelContent.revalidate();
-        jPanelContent.repaint();
     }                                           
 
     private void jComboxMasActionPerformed(java.awt.event.ActionEvent evt) {                                           
@@ -240,17 +218,17 @@ public class VistaInicial extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnRegistro;
-    private javax.swing.JComboBox<String> jComboBoxRangos;
+    public javax.swing.JButton jButtonModificar;
+    public javax.swing.JButton jButtonRegistro;
+    public javax.swing.JComboBox<String> jComboBoxRangos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanelContent;
+    public javax.swing.JPanel jPanelContent;
     private javax.swing.JPanel jPanelHeader1;
     private javax.swing.JPanel jPanelHeader2;
-    private javax.swing.JPanel jPanelListar;
+    public javax.swing.JPanel jPanelListar;
     private javax.swing.JComboBox<String> mas;
     // End of variables declaration                   
 }

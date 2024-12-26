@@ -26,7 +26,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jTextFieldEstrategia = new javax.swing.JTextField();
         jTextFieldId = new javax.swing.JTextField();
-        jButtonModificar = new javax.swing.JButton();
+        jButtonRegistrar = new javax.swing.JButton();
         jComboBoxRango = new javax.swing.JComboBox<>();
         jButtonResetear = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -62,11 +62,11 @@ public class VistaRegistro extends javax.swing.JPanel {
             }
         });
 
-        jButtonModificar.setBackground(new java.awt.Color(0, 255, 0));
-        jButtonModificar.setText("REGISTRAR");
-        jButtonModificar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegistrar.setBackground(new java.awt.Color(0, 255, 0));
+        jButtonRegistrar.setText("REGISTRAR");
+        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonModificarActionPerformed(evt);
+                jButtonRegistrarActionPerformed(evt);
             }
         });
 
@@ -127,7 +127,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                                         .addComponent(jLabel4)
                                         .addGap(168, 168, 168)))
                                 .addGap(16, 16, 16)
-                                .addComponent(jButtonModificar)
+                                .addComponent(jButtonRegistrar)
                                 .addGap(55, 55, 55))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
@@ -174,7 +174,7 @@ public class VistaRegistro extends javax.swing.JPanel {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonModificar)
+                    .addComponent(jButtonRegistrar)
                     .addComponent(jButtonResetear))
                 .addGap(33, 33, 33))
         );
@@ -190,7 +190,7 @@ public class VistaRegistro extends javax.swing.JPanel {
         // TODO add your handling code here:
     }                                                
 
-    private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {                                                 
         // TODO add your handling code here:
     }                                                
 
@@ -207,10 +207,13 @@ public class VistaRegistro extends javax.swing.JPanel {
     }                                                    
 
 
-    // Variables declaration - do not modify                     
-    private javax.swing.JButton jButtonModificar;
-    private javax.swing.JButton jButtonResetear;
-    private javax.swing.JComboBox<String> jComboBoxRango;
+    // Variables declaration  
+    //las variables que se ponen publicas son las que se pueden acceder desde el controlador
+    //pero es algo que se debe cambiar si se piensa tener más seguridad, ahora esta así para 
+    //no llenar la vista de getters y setters.
+    public javax.swing.JButton jButtonRegistrar; 
+    private javax.swing.JButton jButtonResetear; 
+    public javax.swing.JComboBox<String> jComboBoxRango; 
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -219,11 +222,11 @@ public class VistaRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldEstrategia;
-    private javax.swing.JTextField jTextFieldId;
-    private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldSoldadosBajoMando;
-    private javax.swing.JTextField jTextFieldUnidad;
+    public javax.swing.JTextField jTextFieldEstrategia;
+    public javax.swing.JTextField jTextFieldId;
+    public javax.swing.JTextField jTextFieldNombre;
+    public javax.swing.JTextField jTextFieldSoldadosBajoMando;
+    public javax.swing.JTextField jTextFieldUnidad;
     // End of variables declaration                   
 }
 
