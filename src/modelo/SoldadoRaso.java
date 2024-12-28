@@ -5,8 +5,6 @@ public class SoldadoRaso extends Rango{
     private String id;
     private String rango;
     private int nivel;
-    private String patru;
-    private String salu;
     
     
     public SoldadoRaso(String nombre, String id, String rango, int nivel) {
@@ -44,41 +42,6 @@ public class SoldadoRaso extends Rango{
         this.estado = estado;
     }
 
-    @Override
-    public void patrullar(String nombre, String id) {
-        this.nombre = nombre;
-        this.id = id;
-
-        int randomNumber = (int) (Math.random() * 3) + 1;
-
-        System.out.println("El soldado raso ("+ nombre + ") con numero de identificacion: (" + id + ") debe hacer lo siguiente");
-
-        if(randomNumber == 1){
-            patru= "Patrullar áreas asignadas siguiendo rutas establecidas.";
-        } else if (randomNumber == 2) {
-            patru= "Reportar incidentes observados durante el patrullaje.";
-        } else if (randomNumber == 3) {
-            patru= "Realizar revisiones en puntos de control específicos.";
-        }
-
-    }
-
-    @Override
-    public void saludar(String nombre) {
-        this.nombre = nombre;
-        String lowerCaseNombre = nombre.toLowerCase();
-
-        char primeraLetra = lowerCaseNombre.charAt(0);
-        char ultimaLetra = lowerCaseNombre.charAt(lowerCaseNombre.length() - 1);
-
-        if(primeraLetra==ultimaLetra){
-            salu = "¡Buenos días! soldado "+ nombre +" reportándose al servicio.";
-        }else{
-            salu = "¿Qué tal, compañero? Listo para el turno de patrulla.";
-        }
-
-
-    }
 
     @Override
     public String getNombre() {
@@ -124,22 +87,5 @@ public class SoldadoRaso extends Rango{
     public String getMision() {
         return mision;
     }
-
-    public String getPatru() {
-        return patru;
-    }
-
-    public void setPatru(String patrullar) {
-        this.patru = patrullar;
-    }
-
-    public String getSalu() {
-        return salu;
-    }
-
-    public void setSalu(String salu) {
-        this.salu = salu;
-    }
-
     
 }

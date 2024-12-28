@@ -5,12 +5,12 @@ public class Capitan extends Rango{
     private String id;
     private String rango;
     private int nivel;
-    private int cantidadSoldadosBajoSuMando;
+    private String cantidadSoldadosBajoSuMando;
     private String patru;
     private String salu;
 
 
-    public Capitan(String nombre, String id, String rango, int nivel, int cantidadSoldadosBajoSuMando) {
+    public Capitan(String nombre, String id, String rango, int nivel, String cantidadSoldadosBajoSuMando) {
         super(nombre, id, rango, nivel);
         this.nombre = nombre;
         this.id = id;
@@ -31,40 +31,6 @@ public class Capitan extends Rango{
     public void asignarMision(String mision) {
         this.mision = mision;
         System.out.println("Mision asignada: " + mision);
-    }
-
-    @Override
-    public void patrullar(String nombre, String id) {
-        this.nombre = nombre;
-        this.id = id;
-
-        int randomNumber = (int) (Math.random() * 3) + 1;
-
-        System.out.println("El Capitan ("+ nombre + ") con numero de identificacion: (" + id + ") debe hacer lo siguiente");
-
-        if(randomNumber == 1){
-            patru = "Diseñar las estrategias de patrullaje para áreas críticas.";
-        } else if (randomNumber == 2) {
-            patru = "Evaluar informes de los tenientes y soldados rasos para identificar patrones o riesgos.";
-        } else if (randomNumber == 3) {
-            patru = "Asegurarse de que se cumplen los protocolos y procedimientos establecidos.";
-        }
-
-    }
-
-    @Override
-    public void saludar(String nombre) {
-        this.nombre = nombre;
-        String lowerCaseNombre = nombre.toLowerCase();
-
-        char primeraLetra = lowerCaseNombre.charAt(0);
-        char ultimaLetra = lowerCaseNombre.charAt(lowerCaseNombre.length() - 1);
-
-        if(primeraLetra==ultimaLetra){
-            salu = "¡Buenos días, mi coronel! Patrullas desplegadas según las órdenes.";
-        }else{
-            salu = "¡Buenos días, equipo! Necesito un informe completo antes del mediodía.";
-        }
     }
 
 
@@ -97,11 +63,11 @@ public class Capitan extends Rango{
         this.nombre = nombre;
     }
 
-    public int getCantidadSoldadosBajoSuMando() {
+    public String getCantidadSoldadosBajoSuMando() {
         return cantidadSoldadosBajoSuMando;
     }
 
-    public void setCantidadSoldadosBajoSuMando(int cantidadSoldadosBajoSuMando) {
+    public void setCantidadSoldadosBajoSuMando(String cantidadSoldadosBajoSuMando) {
         this.cantidadSoldadosBajoSuMando = cantidadSoldadosBajoSuMando;
     }
 

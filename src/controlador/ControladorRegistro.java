@@ -3,8 +3,11 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import modelo.Capitan;
+import modelo.Coronel;
 import modelo.Database;
 import modelo.SoldadoRaso;
+import modelo.Teniente;
 import vista.VistaRegistro;
 
 public class ControladorRegistro implements ActionListener{
@@ -14,10 +17,44 @@ public class ControladorRegistro implements ActionListener{
     public ControladorRegistro(VistaRegistro vistaRegistro){
         this.vistaRegistro = vistaRegistro;
         this.vistaRegistro.jButtonRegistrar.addActionListener(this);
+        this.vistaRegistro.jComboBoxRango.addActionListener(this);
         this.database = Database.getInstance();
     }
 
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == vistaRegistro.jButtonRegistrar) {
+            registrarSoldado();
+        }
+        if (e.getSource() == vistaRegistro.jComboBoxRango) {
+            actualizarCampos();
+        }
+    }
+
+
+    //esta fución se encarga de que actualizar los campos de las otras funciones de soldados como unidad
+    //o soldados bajo sumando lo que hace es no dejar escribir en alguno de los campos dependiendo el 
+    //rango seleccionado
+    public void actualizarCampos(){
+    if (vistaRegistro.jComboBoxRango.getSelectedItem().toString().equals("Soldado Raso")) {
+        vistaRegistro.jTextFieldEstrategia.setEnabled(false);
+        vistaRegistro.jTextFieldUnidad.setEnabled(false);
+        vistaRegistro.jTextFieldSoldadosBajoMando.setEnabled(false);
+    } else if (vistaRegistro.jComboBoxRango.getSelectedItem().toString().equals("Teniente")) {
+        vistaRegistro.jTextFieldEstrategia.setEnabled(false);
+        vistaRegistro.jTextFieldUnidad.setEnabled(true);
+        vistaRegistro.jTextFieldSoldadosBajoMando.setEnabled(false);
+    } else if (vistaRegistro.jComboBoxRango.getSelectedItem().toString().equals("Capitan")) {
+        vistaRegistro.jTextFieldEstrategia.setEnabled(false);
+        vistaRegistro.jTextFieldUnidad.setEnabled(false);
+        vistaRegistro.jTextFieldSoldadosBajoMando.setEnabled(true);
+    } else if (vistaRegistro.jComboBoxRango.getSelectedItem().toString().equals("Coronel")) {
+        vistaRegistro.jTextFieldEstrategia.setEnabled(true);
+        vistaRegistro.jTextFieldUnidad.setEnabled(false);
+        vistaRegistro.jTextFieldSoldadosBajoMando.setEnabled(false);
+    }
+}
+
+    public void registrarSoldado(){
         String nombre = vistaRegistro.jTextFieldNombre.getText();
         String estrategia = vistaRegistro.jTextFieldEstrategia.getText();
         String rango = vistaRegistro.jComboBoxRango.getSelectedItem().toString();
@@ -25,10 +62,27 @@ public class ControladorRegistro implements ActionListener{
         String unidad = vistaRegistro.jTextFieldUnidad.getText();
         String bajoMando = vistaRegistro.jTextFieldSoldadosBajoMando.getText();
 
-        SoldadoRaso soldadoRaso = new SoldadoRaso(nombre, id, "Soldado raso", 1);
-        database.addSoldadoRaso(soldadoRaso);
-        System.err.println(database.getSoldadosRasos());
-        System.out.println("hola desde controlador");
+        if (vistaRegistro.jComboBoxRango.getSelectedItem().toString().equals("Soldado Raso")){
+            SoldadoRaso soldadoRaso = new SoldadoRaso(nombre, id, "Soldado raso", 1);
+            database.addSoldadoRaso(soldadoRaso);
+            System.err.println(database.getSoldadosRasos());
+            System.out.println("hola desde controlador");
+        }
+        else if (vistaRegistro.jComboBoxRango.getSelectedItem().toString().equals("Teniente")){
+            Teniente teniente = new Teniente(nombre, id, "Teniente", 2,unidad);
+            database.addTeniente(teniente);
+            System.err.println(database.getTenientes());
+        }
+        else if (vistaRegistro.jComboBoxRango.getSelectedItem().toString().equals("Capitan")){
+            Capitan capitan = new Capitan(nombre, id, "Capitan", 3, bajoMando);
+            database.addCapitan(capitan);
+            System.err.println(database.getCapitanes());
+        }
+        else if (vistaRegistro.jComboBoxRango.getSelectedItem().toString().equals("Coronel")){
+            Coronel coronel = new Coronel(nombre, id, "Coronel", 4, estrategia);
+            database.addCoronel(coronel);
+            System.err.println(database.getCoroneles());
+        }
     }
 
     public void Inicializar() {

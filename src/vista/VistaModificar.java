@@ -69,7 +69,7 @@ public class VistaModificar extends javax.swing.JPanel {
             }
         });
 
-        jComboBoxRango.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soldado Raso", "Teniente", "Capitan", "Coronel" }));
+        jComboBoxRango.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rangos","Soldado Raso", "Teniente", "Capitan", "Coronel" }));
         jComboBoxRango.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxRangoActionPerformed(evt);
@@ -207,9 +207,9 @@ public class VistaModificar extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButtonModificar;
+    public javax.swing.JButton jButtonModificar;
     private javax.swing.JButton jButtonResetear;
-    private javax.swing.JComboBox<String> jComboBoxRango;
+    public javax.swing.JComboBox<String> jComboBoxRango;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -217,12 +217,12 @@ public class VistaModificar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldEstrategia;
-    private javax.swing.JTextField jTextFieldId;
-    private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldSoldadosBajoMando;
-    private javax.swing.JTextField jTextFieldUnidad;
+    public javax.swing.JPanel jPanel1;
+    public javax.swing.JTextField jTextFieldEstrategia;
+    public javax.swing.JTextField jTextFieldId;
+    public javax.swing.JTextField jTextFieldNombre;
+    public javax.swing.JTextField jTextFieldSoldadosBajoMando;
+    public javax.swing.JTextField jTextFieldUnidad;
     // End of variables declaration                   
 }
 

@@ -4,8 +4,8 @@ public class Soldado {
     String nombre;
     String id;
     String rango;
-    String mision;
-    String estado;
+    String mision = "Sin misión";
+    String estado = "Sin estado";
 
     public Soldado(String nombre, String id, String rango) {
         this.nombre = nombre;
@@ -31,15 +31,12 @@ public class Soldado {
 
     }
 
-    public void patrullar(String nombre, String id) {
-
-
-
+    public String patrullar() {
+        return "El soldado " + this.nombre + " esta patrullando.";
     }
 
-    public void saludar(String nombre){
-
-
+    public String saludar(){
+        return "Hola " + this.nombre + ", soy " + this.nombre + ".";
     }
 
     public void regañado(){

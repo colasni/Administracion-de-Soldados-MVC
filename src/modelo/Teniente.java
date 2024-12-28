@@ -45,40 +45,6 @@ public class Teniente extends Rango{
     }
 
     @Override
-    public void patrullar(String nombre, String id) {
-        this.nombre = nombre;
-        this.id = id;
-
-        int randomNumber = (int) (Math.random() * 3) + 1;
-
-        System.out.println("El Teniente ("+ nombre + ") con numero de identificacion: (" + id + ") debe hacer lo siguiente");
-
-        if(randomNumber == 1){
-            patru = "Supervisar a los soldados rasos durante el patrullaje.";
-        } else if (randomNumber == 2) {
-            patru = "Coordinar las rutas de patrullaje y asignar sectores a cada grupo.";
-        } else if (randomNumber == 3) {
-            patru = "Actuar como punto de contacto entre los soldados y los rangos superiores.";
-        }
-
-    }
-
-    @Override
-    public void saludar(String nombre) {
-        this.nombre = nombre;
-        String lowerCaseNombre = nombre.toLowerCase();
-
-        char primeraLetra = lowerCaseNombre.charAt(0);
-        char ultimaLetra = lowerCaseNombre.charAt(lowerCaseNombre.length() - 1);
-
-        if(primeraLetra==ultimaLetra){
-            salu = "¡Buenos días, mi capitán! Todo en orden en el sector asignado.";
-        }else{
-            salu = "¡Buenos días, soldados! Preparémonos para la inspección.";
-        }
-    }
-
-    @Override
     public void regañado() {
         super.regañado();
     }

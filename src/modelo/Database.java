@@ -26,7 +26,7 @@ public class Database {
         Database.instance = instance;
     }
     
-    public ArrayList<SoldadoRaso> getSoldadosRasos() {
+    public ArrayList<SoldadoRaso> getSoldadosRasos() { //..
         return soldadosRasos;
     }
 
@@ -34,27 +34,11 @@ public class Database {
         this.soldadosRasos = soldadosRasos;
     }
 
-    public void addSoldadoRaso(SoldadoRaso soldadoRaso) {
+    public void addSoldadoRaso(SoldadoRaso soldadoRaso) { //...
         this.soldadosRasos.add(soldadoRaso); 
     }
 
-    public ArrayList<Capitan> getCapitan() {
-        return capitan;
-    }
-
-    public void setCapitan(ArrayList<Capitan> capitan) {
-        this.capitan = capitan;
-    }
-
-    public ArrayList<Coronel> getCoronel() {
-        return coronel;
-    }
-
-    public void setCoronel(ArrayList<Coronel> coronel) {
-        this.coronel = coronel;
-    }
-
-    public ArrayList<Teniente> getTeniente() {
+    public ArrayList<Teniente> getTenientes() {
         return teniente;
     }
 
@@ -62,4 +46,32 @@ public class Database {
         this.teniente = teniente;
     }
 
+    public void addTeniente(Teniente teniente) {
+        this.teniente.add(teniente);
+    }
+
+
+    public ArrayList<Capitan> getCapitanes() {
+        return capitan;
+    }
+
+    public void addCapitan(Capitan capitan) {
+        this.capitan.add(capitan);
+    }
+
+    public void setCapitan(ArrayList<Capitan> capitan) {
+        this.capitan = capitan;
+    }
+
+    public ArrayList<Coronel> getCoroneles() {
+        return coronel;
+    }
+
+    public void addCoronel(Coronel coronel) {
+        this.coronel.add(coronel);
+    }
+
+    public void setCoronel(ArrayList<Coronel> coronel) {
+        this.coronel = coronel;
+    }
 }

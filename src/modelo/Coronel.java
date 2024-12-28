@@ -23,24 +23,6 @@ public class Coronel extends Rango{
         String accion = "Garantizar la seguridad general y ajustar las políticas de patrullaje según las amenazas o necesidades.";
     }
 
-    @Override
-    public void patrullar(String nombre, String id) {
-        this.nombre = nombre;
-        this.id = id;
-
-        int randomNumber = (int) (Math.random() * 3) + 1;
-
-        System.out.println("El Coronel ("+ nombre + ") con numero de identificacion: (" + id + ") debe hacer lo siguiente");
-
-        if(randomNumber == 1){
-            patru = "Supervisar las operaciones generales de patrullaje y evaluar su efectividad.";
-        } else if (randomNumber == 2) {
-            patru = "Tomar decisiones de alto nivel sobre la reasignación de recursos o ajustes en las estrategias de vigilancia.";
-        } else if (randomNumber == 3) {
-            patru = "Gestionar la comunicación y coordinación entre diferentes áreas o unidades.";
-        }
-
-    }
 
     @Override
     public void asignarMision(String mision) {
@@ -60,23 +42,7 @@ public class Coronel extends Rango{
 
     }
 
-    @Override
-    public void saludar(String nombre) {
-        this.nombre = nombre;
-        String lowerCaseNombre = nombre.toLowerCase();
 
-        char primeraLetra = lowerCaseNombre.charAt(0);
-        char ultimaLetra = lowerCaseNombre.charAt(lowerCaseNombre.length() - 1);
-
-
-        if(primeraLetra==ultimaLetra){
-            salu = "¡Buenos días! Procedemos según las instrucciones.";
-        }else{
-            salu = "Coronel, asegúrese de que todas las unidades estén en posición.";
-        }
-
-
-    }
 
     public String getEstado() {
         return estado;

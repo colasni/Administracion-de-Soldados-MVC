@@ -45,7 +45,7 @@ public class VistaInicial extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("SOLDADOS:");
 
-        jComboBoxRangos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soldado Raso", "Teniente", "Capitan", "Coronel" }));
+        jComboBoxRangos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Soldado Raso", "Teniente", "Capitan", "Coronel" }));
         jComboBoxRangos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxRangosActionPerformed(evt);

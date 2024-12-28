@@ -70,7 +70,7 @@ public class VistaRegistro extends javax.swing.JPanel {
             }
         });
 
-        jComboBoxRango.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soldado Raso", "Teniente", "Capitan", "Coronel" }));
+        jComboBoxRango.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rangos","Soldado Raso", "Teniente", "Capitan", "Coronel" }));
         jComboBoxRango.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxRangoActionPerformed(evt);

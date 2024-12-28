@@ -21,6 +21,7 @@ public class ControladorInicial implements ActionListener {
     private VistaModificar vistaModificar = new VistaModificar(); //se crea la vista modificar
     private VistaRegistro vistaRegistro = new VistaRegistro(); //se crea la vista registro
     private ControladorRegistro controladorRegistro = new ControladorRegistro(vistaRegistro);
+    private ControladorModificar controladorModificar = new ControladorModificar(vistaModificar);
 
     public ControladorInicial(VistaInicial vistaInicial) {
         this.vistaInicial = vistaInicial;
@@ -38,13 +39,11 @@ public class ControladorInicial implements ActionListener {
             controladorRegistro.Inicializar();
 
         } else if (e.getSource() == vistaInicial.jButtonModificar) {
-            vistaModificar.setSize(406, 268);
-            vistaModificar.setLocation(0,0);
-            
             vistaInicial.jPanelContent.removeAll();
             vistaInicial.jPanelContent.add(vistaModificar, BorderLayout.CENTER);
             vistaInicial.revalidate();
             vistaInicial.repaint();
+            controladorModificar.Inicializar();
         } else if(e.getSource() == vistaInicial.jComboBoxRangos){
             String itemSeleccionado = (String) vistaInicial.jComboBoxRangos.getSelectedItem();
             listarSoldados(itemSeleccionado);
@@ -52,22 +51,16 @@ public class ControladorInicial implements ActionListener {
 }
 
     public void listarSoldados(String itemSeleccionado){
-        //usa la misma instancia de la base de datos
+        //usa la misma instancia de la base de datos, en este metodo debido a que solo se necesita aquí por ahora
         Database db = Database.getInstance();
         vistaInicial.jPanelListar.removeAll();
         switch (itemSeleccionado) {
             case "Soldado Raso":
                 for (SoldadoRaso soldadoRaso : db.getSoldadosRasos()) {
-                    if (soldadoRaso.getMision() == null) {
-                        soldadoRaso.asignarMision("Sin misión");
-                    }
-                    if (soldadoRaso.getEstado() == null) {
-                        soldadoRaso.setEstado("Sin estado");
-                    }
-                    JLabel labelNombre = new JLabel(" Nombre: "+soldadoRaso.getNombre());
-                    JLabel labelId = new JLabel(" ID: "+soldadoRaso.getId());
-                    JLabel labelMision = new JLabel("Misión: "+soldadoRaso.getMision());
-                    JLabel labelEstado = new JLabel("Estado: "+soldadoRaso.getEstado());
+                    JLabel labelNombre = new JLabel("  Nombre: "+soldadoRaso.getNombre());
+                    JLabel labelId = new JLabel("  ID: "+soldadoRaso.getId());
+                    JLabel labelMision = new JLabel("  Misión: "+soldadoRaso.getMision());
+                    JLabel labelEstado = new JLabel("  Estado: "+soldadoRaso.getEstado());
                     JLabel labelLinea = new JLabel("___________________________________");
                     //label.setAlignmentX(Component.CENTER_ALIGNMENT);
                     //lab.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -80,13 +73,52 @@ public class ControladorInicial implements ActionListener {
                 }
                 break;
             case "Teniente":
-                System.out.println("Teniente");
+                for (Teniente tieniente : db.getTenientes()) {
+                    JLabel labelNombre = new JLabel("  Nombre: "+tieniente.getNombre());
+                    JLabel labelId = new JLabel("  ID: "+tieniente.getId());
+                    JLabel labelMision = new JLabel("  Misión: "+tieniente.getMision());
+                    JLabel labelEstado = new JLabel("  Estado: "+tieniente.getEstado());
+                    JLabel labelUnidad = new JLabel("  Unidad: "+tieniente.getUnidad());
+                    JLabel labelLinea = new JLabel("___________________________________");
+                    vistaInicial.jPanelListar.add(labelNombre);
+                    vistaInicial.jPanelListar.add(labelId);
+                    vistaInicial.jPanelListar.add(labelMision);
+                    vistaInicial.jPanelListar.add(labelEstado);
+                    vistaInicial.jPanelListar.add(labelUnidad);
+                    vistaInicial.jPanelListar.add(labelLinea);
+                }
                 break;
             case "Capitan":
-                System.out.println("Capitan");
+                for (Capitan capitan : db.getCapitanes()){
+                    JLabel labelNombre = new JLabel("  Nombre: "+capitan.getNombre());
+                    JLabel labelId = new JLabel("  ID: "+capitan.getId());
+                    JLabel labelMision = new JLabel("  Misión: "+capitan.getMision());
+                    JLabel labelEstado = new JLabel("  Estado: "+capitan.getEstado());
+                    JLabel labelSoldadosBajoMando = new JLabel("  Soldados bajo mando: "+capitan.getCantidadSoldadosBajoSuMando());
+                    JLabel labelLinea = new JLabel("___________________________________");
+                    vistaInicial.jPanelListar.add(labelNombre);
+                    vistaInicial.jPanelListar.add(labelId);
+                    vistaInicial.jPanelListar.add(labelMision);
+                    vistaInicial.jPanelListar.add(labelEstado);
+                    vistaInicial.jPanelListar.add(labelSoldadosBajoMando);
+                    vistaInicial.jPanelListar.add(labelLinea);
+                }
                 break;
             case "Coronel":
-                System.out.println("Coronel");
+                for (Coronel coronel : db.getCoroneles()){
+                    JLabel labelNombre = new JLabel("  Nombre: "+coronel.getNombre());
+                    JLabel labelId = new JLabel("  ID: "+coronel.getId());
+                    JLabel labelMision = new JLabel("  Misión: "+coronel.getMision());
+                    JLabel labelEstado = new JLabel("  Estado: "+coronel.getEstado());
+                    JLabel labelEstrategia = new JLabel("  Estrategia: "+coronel.getEstrategia());
+                    JLabel labelLinea = new JLabel("___________________________________");
+                    vistaInicial.jPanelListar.add(labelNombre);
+                    vistaInicial.jPanelListar.add(labelId);
+                    vistaInicial.jPanelListar.add(labelMision);
+                    vistaInicial.jPanelListar.add(labelEstado);
+                    vistaInicial.jPanelListar.add(labelEstrategia);
+                    vistaInicial.jPanelListar.add(labelLinea);
+                }
                 break;
             default:
                 System.out.println("nada");
