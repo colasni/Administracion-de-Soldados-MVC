@@ -28,10 +28,6 @@ public class ControladorModificar implements ActionListener {
         else if (e.getSource() == vistaModificar.jComboBoxRango){
             actualizarCampos();
         }
-        /* 
-        vistaModificar.revalidate();
-        vistaModificar.repaint();
-        */
     }
 
     //esta fución se encarga de que actualizar los campos de las otras funciones de soldados como unidad
@@ -101,7 +97,7 @@ public class ControladorModificar implements ActionListener {
         }
     }
 
-    public void Inicializar() {
+    public void inicializar() {
         vistaModificar.setSize(406, 268);
         vistaModificar.setLocation(0,0);
     }

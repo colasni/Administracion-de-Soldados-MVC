@@ -1,5 +1,6 @@
 package vista;
 
+
 public class VistaModificar extends javax.swing.JPanel {
 
     /**
@@ -94,7 +95,7 @@ public class VistaModificar extends javax.swing.JPanel {
 
         jLabel7.setText("Soldados bajo su Mando:");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(this);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(this); //...
         this.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

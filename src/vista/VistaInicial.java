@@ -36,7 +36,7 @@ public class VistaInicial extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButtonRegistro = new javax.swing.JButton();
         jButtonModificar = new javax.swing.JButton();
-        mas = new javax.swing.JComboBox<>();
+        jComboBoxMas = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,11 +131,11 @@ public class VistaInicial extends javax.swing.JFrame {
             }
         });
 
-        mas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        mas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Más", "Asignar Misión", "Asignar Estado", "Acciones" }));
-        mas.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxMas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jComboBoxMas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Más", "Asignar Mision", "Asignar Estado", "Acciones" }));
+        jComboBoxMas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboxMasActionPerformed(evt);
+                jComboxjComboBoxMasActionPerformed(evt);
             }
         });
 
@@ -153,7 +153,7 @@ public class VistaInicial extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButtonModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(mas, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBoxMas, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelHeader2Layout.setVerticalGroup(
@@ -165,11 +165,11 @@ public class VistaInicial extends javax.swing.JFrame {
                 .addGroup(jPanelHeader2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRegistro)
                     .addComponent(jButtonModificar)
-                    .addComponent(mas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxMas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        mas.getAccessibleContext().setAccessibleName("mas");
+        jComboBoxMas.getAccessibleContext().setAccessibleName("jComboBoxMas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -207,7 +207,7 @@ public class VistaInicial extends javax.swing.JFrame {
         
     }                                           
 
-    private void jComboxMasActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void jComboxjComboBoxMasActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
     }                                          
 
@@ -229,6 +229,6 @@ public class VistaInicial extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelHeader1;
     private javax.swing.JPanel jPanelHeader2;
     public javax.swing.JPanel jPanelListar;
-    private javax.swing.JComboBox<String> mas;
+    public javax.swing.JComboBox<String> jComboBoxMas;
     // End of variables declaration                   
 }

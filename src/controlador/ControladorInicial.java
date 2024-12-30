@@ -15,19 +15,26 @@ import modelo.Teniente;
 import vista.VistaInicial;
 import vista.VistaModificar;
 import vista.VistaRegistro;
+import vista.VistaAsignarEstado;
+import vista.VistaAsignarMision;
 
 public class ControladorInicial implements ActionListener {
     private VistaInicial vistaInicial;
     private VistaModificar vistaModificar = new VistaModificar(); //se crea la vista modificar
     private VistaRegistro vistaRegistro = new VistaRegistro(); //se crea la vista registro
+    private VistaAsignarMision VistaAsignarMision = new VistaAsignarMision(); //se crea la vista asignar mision
+    private VistaAsignarEstado VistaAsignarEstado = new VistaAsignarEstado(); //se crea la vista asignar estado
     private ControladorRegistro controladorRegistro = new ControladorRegistro(vistaRegistro);
     private ControladorModificar controladorModificar = new ControladorModificar(vistaModificar);
+    private ControladorAsignarMision controladorAsignarMision = new ControladorAsignarMision(VistaAsignarMision);
+    private ControladorAsignarEstado controladorAsignarEstado = new ControladorAsignarEstado(VistaAsignarEstado);
 
     public ControladorInicial(VistaInicial vistaInicial) {
         this.vistaInicial = vistaInicial;
         this.vistaInicial.jButtonRegistro.addActionListener(this);
         this.vistaInicial.jButtonModificar.addActionListener(this);
         this.vistaInicial.jComboBoxRangos.addActionListener(this);
+        this.vistaInicial.jComboBoxMas.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -36,14 +43,19 @@ public class ControladorInicial implements ActionListener {
             vistaInicial.jPanelContent.add(vistaRegistro, BorderLayout.CENTER);
             vistaInicial.jPanelContent.revalidate();
             vistaInicial.jPanelContent.repaint();
-            controladorRegistro.Inicializar();
+            controladorRegistro.inicializar();
 
         } else if (e.getSource() == vistaInicial.jButtonModificar) {
             vistaInicial.jPanelContent.removeAll();
             vistaInicial.jPanelContent.add(vistaModificar, BorderLayout.CENTER);
             vistaInicial.revalidate();
             vistaInicial.repaint();
-            controladorModificar.Inicializar();
+            controladorModificar.inicializar();
+
+        }else if(e.getSource() == vistaInicial.jComboBoxMas){
+            String itemSeleccionado = (String) vistaInicial.jComboBoxMas.getSelectedItem();
+            vistaMasFuncionalidades(itemSeleccionado);
+
         } else if(e.getSource() == vistaInicial.jComboBoxRangos){
             String itemSeleccionado = (String) vistaInicial.jComboBoxRangos.getSelectedItem();
             listarSoldados(itemSeleccionado);
@@ -130,7 +142,39 @@ public class ControladorInicial implements ActionListener {
     vistaInicial.jPanelListar.repaint();
     }
 
-    public void Inicializar() {
+    public void vistaMasFuncionalidades(String itemSeleccionado){
+        switch (itemSeleccionado) {
+            case "Asignar Mision":
+            vistaInicial.jPanelContent.removeAll(); 
+            vistaInicial.jPanelContent.add(VistaAsignarMision, BorderLayout.CENTER);
+            vistaInicial.jPanelContent.revalidate();
+            vistaInicial.jPanelContent.repaint();
+            controladorAsignarMision.inicializar();
+                break; 
+            case "Asignar Estado":
+                vistaInicial.jPanelContent.removeAll(); 
+                vistaInicial.jPanelContent.add(VistaAsignarEstado, BorderLayout.CENTER);
+                vistaInicial.jPanelContent.revalidate();
+                vistaInicial.jPanelContent.repaint();
+                controladorAsignarEstado.inicializar();
+                System.out.println("Asignar Mision");
+                break;/* 
+
+                funcionalidad futuras
+            case "Acciones":
+                JLabel labelIdPatrullar = new JLabel("ID:");
+                vistaInicial.jPanelMas.add(labelIdPatrullar);
+                vistaInicial.jPanelMas.add(vistaInicial.jTextFieldIdPatrullar);
+                vistaInicial.jPanelMas.add(vistaInicial.jButtonPatrullar);
+                break;
+                */
+            default:
+                System.out.println("nada");
+                break;
+        }
+    }
+
+    public void inicializar() {
         vistaInicial.setResizable(false);
         vistaInicial.setVisible(true);
         vistaInicial.setLocationRelativeTo(null);

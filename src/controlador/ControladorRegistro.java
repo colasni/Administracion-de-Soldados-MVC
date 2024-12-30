@@ -62,30 +62,41 @@ public class ControladorRegistro implements ActionListener{
         String unidad = vistaRegistro.jTextFieldUnidad.getText();
         String bajoMando = vistaRegistro.jTextFieldSoldadosBajoMando.getText();
 
-        if (vistaRegistro.jComboBoxRango.getSelectedItem().toString().equals("Soldado Raso")){
+        if (rango.equals("Soldado Raso")){
+
+            for(SoldadoRaso soldadoRasos : database.getSoldadosRasos()){
+                if(soldadoRasos.getId().equals(id)){
+                    javax.swing.JOptionPane.showMessageDialog(null, "El ID del soldado ya existe");
+                    return;
+                }
+            }
             SoldadoRaso soldadoRaso = new SoldadoRaso(nombre, id, "Soldado raso", 1);
             database.addSoldadoRaso(soldadoRaso);
-            System.err.println(database.getSoldadosRasos());
-            System.out.println("hola desde controlador");
         }
-        else if (vistaRegistro.jComboBoxRango.getSelectedItem().toString().equals("Teniente")){
+        else if (rango.equals("Teniente")){
+            for(Teniente teniente : database.getTenientes()){
+                if(teniente.getId().equals(id)){
+                    javax.swing.JOptionPane.showMessageDialog(null, "El ID del soldado ya existe");
+                    return;
+                }
+            }
             Teniente teniente = new Teniente(nombre, id, "Teniente", 2,unidad);
             database.addTeniente(teniente);
-            System.err.println(database.getTenientes());
         }
-        else if (vistaRegistro.jComboBoxRango.getSelectedItem().toString().equals("Capitan")){
+        else if (rango.equals("Capitan")){
             Capitan capitan = new Capitan(nombre, id, "Capitan", 3, bajoMando);
             database.addCapitan(capitan);
             System.err.println(database.getCapitanes());
         }
-        else if (vistaRegistro.jComboBoxRango.getSelectedItem().toString().equals("Coronel")){
+        else if (rango.equals("Coronel")){
             Coronel coronel = new Coronel(nombre, id, "Coronel", 4, estrategia);
             database.addCoronel(coronel);
             System.err.println(database.getCoroneles());
         }
+        
     }
 
-    public void Inicializar() {
+    public void inicializar() {
         vistaRegistro.setSize(406, 268);
         vistaRegistro.setLocation(0,0);
     }
